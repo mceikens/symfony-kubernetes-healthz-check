@@ -13,7 +13,7 @@ class ReadinessProbeController extends AbstractController
 {
     private array $readinessProbes = [];
 
-    public function addLivenessProbe(HealthzCheckInterface $healthzCheck)
+    public function addReadinessProbe(HealthzCheckInterface $healthzCheck)
     {
         $this->readinessProbes[] = $healthzCheck;
     }
