@@ -1,6 +1,6 @@
 <?php
 
-namespace SymfonyKubernetesHealthzCheck\Interface\Healthz;
+namespace MCEikens\SymfonyKubernetesHealthzCheck\Interface\Healthz;
 
 interface HealthzCheckInterface
 {

@@ -7,13 +7,13 @@
     <route
             id="healthz_readiness"
             path="/healthz/ready"
-            controller="SymfonyKubernetesHealthzCheck\Controller\Healthz\ReadinessProbeController::__invoke"
+            controller="MCEikens\SymfonyKubernetesHealthzCheck\Controller\Healthz\ReadinessProbeController::__invoke"
             methods="GET"
     />
     <route
             id="healthz_liveness"
             path="/healthz/live"
-            controller="SymfonyKubernetesHealthzCheck\Controller\Healthz\LivenessProbeController::__invoke"
+            controller="MCEikens\SymfonyKubernetesHealthzCheck\Controller\Healthz\LivenessProbeController::__invoke"
             methods="GET"
     />
 </routes>

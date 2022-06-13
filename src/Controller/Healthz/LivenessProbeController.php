@@ -1,9 +1,9 @@
 <?php
 
-namespace SymfonyKubernetesHealthzCheck\Controller\Healthz;
+namespace MCEikens\SymfonyKubernetesHealthzCheck\Controller\Healthz;
 
-use SymfonyKubernetesHealthzCheck\Exception\Healthz\HealthzException;
-use SymfonyKubernetesHealthzCheck\Interface\Healthz\HealthzCheckInterface;
+use MCEikens\SymfonyKubernetesHealthzCheck\Exception\Healthz\HealthzException;
+use MCEikens\SymfonyKubernetesHealthzCheck\Interface\Healthz\HealthzCheckInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;

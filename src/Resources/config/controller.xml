@@ -6,10 +6,10 @@
     <services>
         <defaults autowire="true" autoconfigure="true" public="true" />
 
-        <service public="true" id="SymfonyKubernetesHealthzCheck\Controller\Healthz\LivenessProbeController" class="SymfonyKubernetesHealthzCheck\Controller\Healthz\LivenessProbeController">
+        <service public="true" id="MCEikens\SymfonyKubernetesHealthzCheck\Controller\Healthz\LivenessProbeController" class="MCEikens\SymfonyKubernetesHealthzCheck\Controller\Healthz\LivenessProbeController">
             <tag name="container.service_subscriber" />
         </service>
-        <service public="true" id="SymfonyKubernetesHealthzCheck\Controller\Healthz\ReadinessProbeController" class="SymfonyKubernetesHealthzCheck\Controller\Healthz\ReadinessProbeController">
+        <service public="true" id="MCEikens\SymfonyKubernetesHealthzCheck\Controller\Healthz\ReadinessProbeController" class="MCEikens\SymfonyKubernetesHealthzCheck\Controller\Healthz\ReadinessProbeController">
             <tag name="container.service_subscriber" />
         </service>
     </services>

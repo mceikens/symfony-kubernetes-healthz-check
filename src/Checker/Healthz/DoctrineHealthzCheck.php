@@ -1,8 +1,8 @@
 <?php
-namespace SymfonyKubernetesHealthzCheck\Checker\Healthz;
+namespace MCEikens\MCEikens\SymfonyKubernetesHealthzCheck\Checker\Healthz;
 
-use SymfonyKubernetesHealthzCheck\Exception\Healthz\HealthzException;
-use SymfonyKubernetesHealthzCheck\Interface\Healthz\HealthzCheckInterface;
+use MCEikens\SymfonyKubernetesHealthzCheck\Exception\Healthz\HealthzException;
+use MCEikens\SymfonyKubernetesHealthzCheck\Interface\Healthz\HealthzCheckInterface;
 use Doctrine\DBAL\Exception;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;

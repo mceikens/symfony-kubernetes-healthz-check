@@ -1,14 +1,14 @@
 <?php
 
-namespace SymfonyKubernetesHealthzCheck\DependencyInjection;
+namespace MCEikens\SymfonyKubernetesHealthzCheck\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
-use SymfonyKubernetesHealthzCheck\Checker\Healthz\DoctrineHealthzCheck;
-use SymfonyKubernetesHealthzCheck\Controller\Healthz\LivenessProbeController;
-use SymfonyKubernetesHealthzCheck\Controller\Healthz\ReadinessProbeController;
+use MCEikens\SymfonyKubernetesHealthzCheck\Checker\Healthz\DoctrineHealthzCheck;
+use MCEikens\SymfonyKubernetesHealthzCheck\Controller\Healthz\LivenessProbeController;
+use MCEikens\SymfonyKubernetesHealthzCheck\Controller\Healthz\ReadinessProbeController;
 
 class SymfonyKubernetesHealthzChecksExtension extends Extension
 {

@@ -34,12 +34,12 @@
   },
   "autoload": {
     "psr-4": {
-      "SymfonyKubernetesHealthzCheck\\": "src"
+      "MCEikens\\SymfonyKubernetesHealthzCheck\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "SymfonyKubernetesHealthzCheck\\Tests\\": "tests"
+      "MCEikens\\SymfonyKubernetesHealthzCheck\\Tests\\": "tests"
     }
   },
   "scripts": {

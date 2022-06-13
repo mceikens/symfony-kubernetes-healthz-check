@@ -1,6 +1,6 @@
 <?php
 
-namespace SymfonyKubernetesHealthzCheck\Exception\Healthz;
+namespace MCEikens\SymfonyKubernetesHealthzCheck\Exception\Healthz;
 
 use Exception;
 
