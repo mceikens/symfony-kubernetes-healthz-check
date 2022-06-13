@@ -6,7 +6,7 @@
     <services>
         <defaults autowire="true" autoconfigure="true" />
 
-        <service public="true" id="symfony_kubernetes_healthz_check.doctrine_check" class="MCEikens\SymfonyKubernetesHealthzCheck\Checker\Healthz\DoctrineHealthzChecker">
+        <service public="true" id="symfony_kubernetes_healthz_check.doctrine_check" class="MCEikens\SymfonyKubernetesHealthzCheck\Checker\Healthz\DoctrineHealthzCheck">
             <argument type="service" id="service_container"/>
         </service>
     </services>
