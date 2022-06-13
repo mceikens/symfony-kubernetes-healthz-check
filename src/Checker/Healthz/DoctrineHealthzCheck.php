@@ -1,5 +1,5 @@
 <?php
-namespace MCEikens\MCEikens\SymfonyKubernetesHealthzCheck\Checker\Healthz;
+namespace MCEikens\SymfonyKubernetesHealthzCheck\Checker\Healthz;
 
 use MCEikens\SymfonyKubernetesHealthzCheck\Exception\Healthz\HealthzException;
 use MCEikens\SymfonyKubernetesHealthzCheck\Interface\Healthz\HealthzCheckInterface;
