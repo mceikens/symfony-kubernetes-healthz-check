@@ -21,7 +21,8 @@ class ReadinessProbeController extends AbstractController
     public function __invoke(): JsonResponse
     {
         $result = [];
-        $result['readiness'] = false;
+        $result['readiness'] = true;
+        $statusCode = Response::HTTP_OK;
 
         foreach ($this->readinessProbes as $check)
         {

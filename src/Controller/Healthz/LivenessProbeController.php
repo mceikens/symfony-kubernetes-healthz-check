@@ -21,7 +21,8 @@ class LivenessProbeController extends AbstractController
     public function __invoke(): JsonResponse
     {
         $result = [];
-        $result['liveness'] = false;
+        $result['liveness'] = true;
+        $statusCode = Response::HTTP_OK;
 
         foreach ($this->livenessProbes as $check)
         {
