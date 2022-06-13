@@ -27,12 +27,7 @@ class DoctrineHealthzCheck implements HealthzCheckInterface
      */
     public function liveness(): bool
     {
-        if ($this->container->get('symfony_kubernetes_health_checks.database.livenessprobe'))
-        {
-            return $this->check();
-        }
-
-        return false;
+        return $this->check();
     }
 
     /**
@@ -41,12 +36,7 @@ class DoctrineHealthzCheck implements HealthzCheckInterface
      */
     public function readiness(): bool
     {
-        if ($this->container->get('symfony_kubernetes_health_checks.database.readinessprobe'))
-        {
-            return $this->check();
-        }
-
-        return false;
+        return $this->check();
     }
 
     /**
@@ -55,18 +45,13 @@ class DoctrineHealthzCheck implements HealthzCheckInterface
      */
     private function check(): bool
     {
-        if ($this->container->get('symfony_kubernetes_health_checks.database.enabled'))
-        {
-            try {
-                $doctrineConnection = $this->entityManager->getConnection();
-                $doctrineConnection->executeQuery($doctrineConnection->getDatabasePlatform()->getDummySelectSQL())->free();
-            } catch (Exception $e) {
-                throw new HealthzException($e->getMessage());
-            }
-
-            return true;
+        try {
+            $doctrineConnection = $this->entityManager->getConnection();
+            $doctrineConnection->executeQuery($doctrineConnection->getDatabasePlatform()->getDummySelectSQL())->free();
+        } catch (Exception $e) {
+            throw new HealthzException($e->getMessage());
         }
 
-        return false;
+        return true;
     }
 }

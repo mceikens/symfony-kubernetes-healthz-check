@@ -10,20 +10,18 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ReadinessProbeController extends AbstractController
 {
-    private HealthzCheckInterface $healthzCheckInterface;
+    private array $readinessProbes = [];
 
-    public function __construct(HealthzCheckInterface $healthzCheckInterface)
+    public function addLivenessProbe(HealthzCheckInterface $healthzCheck)
     {
-        $this->healthzCheckInterface = $healthzCheckInterface;
+        $this->readinessProbes[] = $healthzCheck;
     }
-
     #[Route('/healthz/ready', name: 'app_kubernetes_healthz_redinessprobe', methods: "GET")]
     public function __invoke(): JsonResponse
     {
-        $result = $this->healthzCheckInterface->readiness();
-        if (is_bool($result))
-        {
-            return new JsonResponse($result, Response::HTTP_OK);
+        $resultHealthCheck = [];
+        foreach ($this->readinessProbes as $check) {
+            $resultHealthCheck[] = $check->readiness();
         }
 
         return new JsonResponse($result, Response::HTTP_INTERNAL_SERVER_ERROR);
