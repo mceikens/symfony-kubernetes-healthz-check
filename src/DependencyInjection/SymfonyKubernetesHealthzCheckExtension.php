@@ -4,6 +4,7 @@ namespace MCEikens\SymfonyKubernetesHealthzCheck\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
+use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use MCEikens\SymfonyKubernetesHealthzCheck\Checker\Healthz\DoctrineHealthzCheck;
@@ -40,13 +41,13 @@ class SymfonyKubernetesHealthzCheckExtension extends Extension
         $readinessCheckCollection = $container->findDefinition(ReadinessProbeController::class);
 
         foreach ($config['readinessprobes'] as $readinessprobeConfig) {
-            $definition = new Reference($readinessprobeConfig['name']);
+            $definition = new Reference($readinessprobeConfig['id']);
             $readinessCheckCollection->addMethodCall('addReadinessProbe', [$definition]);
         }
 
         $livenessCheckCollection = $container->findDefinition(LivenessProbeController::class);
         foreach ($config['livenessprobes'] as $livenessprobeConfig) {
-            $definition = new Reference($livenessprobeConfig['name']);
+            $definition = new Reference($livenessprobeConfig['id']);
             $livenessCheckCollection->addMethodCall('addLivenessProbe', [$definition]);
         }
     }
