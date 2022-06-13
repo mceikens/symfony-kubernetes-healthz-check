@@ -10,18 +10,13 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder('symfony_kubernetes_healthz_check');
 
-        $root = method_exists(TreeBuilder::class, 'getRootNode')
-            ? $treeBuilder->getRootNode()
-            : $treeBuilder->root('symfony_kubernetes_healthz_check');
-
-        $root
-            ->children()
-                ->arrayNode('readinessprobe')
+        $treeBuilder->getRootNode()
+                ->arrayNode('readinessprobes')
                     ->children()
                         ->scalarNode('name')->cannotBeEmpty()->end()
                     ->end()
                 ->end()
-                ->arrayNode('livenessprobe')
+                ->arrayNode('livenessprobes')
                     ->children()
                         ->scalarNode('name')->cannotBeEmpty()->end()
                     ->end()

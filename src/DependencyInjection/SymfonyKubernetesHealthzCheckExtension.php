@@ -10,7 +10,7 @@ use MCEikens\SymfonyKubernetesHealthzCheck\Checker\Healthz\DoctrineHealthzCheck;
 use MCEikens\SymfonyKubernetesHealthzCheck\Controller\Healthz\LivenessProbeController;
 use MCEikens\SymfonyKubernetesHealthzCheck\Controller\Healthz\ReadinessProbeController;
 
-class SymfonyKubernetesHealthzChecksExtension extends Extension
+class SymfonyKubernetesHealthzCheckExtension extends Extension
 {
 
     /**
