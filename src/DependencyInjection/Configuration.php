@@ -11,6 +11,7 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder('symfony_kubernetes_healthz_check');
 
         $treeBuilder->getRootNode()
+            ->children()
                 ->arrayNode('readinessprobes')
                     ->children()
                         ->scalarNode('name')->cannotBeEmpty()->end()
