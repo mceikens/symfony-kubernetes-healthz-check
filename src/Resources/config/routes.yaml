@@ -1,0 +1,8 @@
+healthz_readiness:
+  path: /healthz/ready
+  controller: MCEikens\SymfonyKubernetesHealthzCheck\Controller\Healthz\ReadinessProbeController
+  method: "GET"
+healthz_liveness:
+  path: /healthz/live
+  controller: MCEikens\SymfonyKubernetesHealthzCheck\Controller\Healthz\LivenessProbeController
+  method: "GET"
