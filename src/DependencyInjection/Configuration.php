@@ -8,7 +8,7 @@ class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder('symfony_kubernetes_health_checks');
+        $treeBuilder = new TreeBuilder('symfony_kubernetes_healthz_checks');
 
         $treeBuilder->getRootNode()
             ->children()
