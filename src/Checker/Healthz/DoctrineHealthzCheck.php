@@ -21,29 +21,7 @@ class DoctrineHealthzCheck implements HealthzCheckInterface
         $this->entityManager = $entityManager;
     }
 
-    /**
-     * @return bool
-     * @throws HealthzException
-     */
-    public function liveness(): bool
-    {
-        return $this->check();
-    }
-
-    /**
-     * @return bool
-     * @throws HealthzException
-     */
-    public function readiness(): bool
-    {
-        return $this->check();
-    }
-
-    /**
-     * @return bool
-     * @throws HealthzException
-     */
-    private function check(): bool
+    public function check(): bool
     {
         try {
             $doctrineConnection = $this->entityManager->getConnection();

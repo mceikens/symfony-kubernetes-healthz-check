@@ -2,6 +2,7 @@
 
 namespace SymfonyKubernetesHealthzCheck\Controller\Healthz;
 
+use SymfonyKubernetesHealthzCheck\Exception\Healthz\HealthzException;
 use SymfonyKubernetesHealthzCheck\Interface\Healthz\HealthzCheckInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -17,15 +18,29 @@ class LivenessProbeController extends AbstractController
         $this->livenessProbes[] = $healthzCheck;
     }
 
-    #[Route('/healthz/live', name: 'app_kubernetes_healthz_livenessprobe', methods: "GET")]
     public function __invoke(): JsonResponse
     {
-        $resultHealthCheck = [];
-        foreach ($this->livenessProbes as $check) {
-            $resultHealthCheck[] = $check->liveness();
+        $result = [];
+        $result['liveness'] = false;
+
+        foreach ($this->livenessProbes as $check)
+        {
+            try {
+                $check->check();
+
+                if ($statusCode !== Response::HTTP_INTERNAL_SERVER_ERROR)
+                {
+                    $result['liveness'] = true;
+                    $statusCode = Response::HTTP_OK;
+                }
+
+            } catch (HealthzException $exception) {
+                $result[] = ['message' => $exception->getMessage()];
+                $statusCode = Response::HTTP_INTERNAL_SERVER_ERROR;
+                $result['liveness'] = false;
+            }
         }
 
-
-        return new JsonResponse($result, Response::HTTP_INTERNAL_SERVER_ERROR);
+        return new JsonResponse($result, $statusCode);
     }
 }
